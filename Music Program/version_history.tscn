@@ -10,20 +10,27 @@ bg_color = Color(0.156863, 0.156863, 0.156863, 1)
 [node name="TextEdit" type="TextEdit" parent="."]
 offset_right = 1150.0
 offset_bottom = 647.0
+mouse_default_cursor_shape = 0
 theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_styles/read_only = SubResource("StyleBoxFlat_3vun2")
-text = " Alpha 2 - 7/2/26
-	- Edited placeholder graphics, tidying up position and colors.
-	- Added complete keyboard controls over two octaves.
-	- Extended on-screen piano.
-	- Gave mouse eight octaves of control.
-	- Added a screen to show connected MIDI inputs. 
+text = "Alpha 3 - 7/5/26
+	- Renamed program from 'The Kibb Music Program' to 'K1 Monophonic Sampler'
+	- Added complete MIDI control over eight octaves
+	- Added release for all inputs
+	- Added attack for all inputs
+Alpha 2 - 7/2/26
+	- Edited placeholder graphics, tidying up position and colors
+	- Added complete keyboard controls over eight octaves
+	- Extended on-screen piano
+	- Gave mouse eight octaves of control
+	- Added a screen to show connected MIDI inputs.
+	- Added Windows support
  Alpha 1 - 7/1/26
-	- Added MIDI code foundation.
-	- Added two octaves of MIDI control.
-	- Added one octave of mouse control.
-	- Added placeholder sound and graphics.
-	- Added velocity.
+	- Added MIDI code foundation
+	- Added two octaves of MIDI control
+	- Added one octave of mouse control
+	- Added placeholder sound and graphics
+	- Added velocity
 	- Added Mac support"
 editable = false
 virtual_keyboard_enabled = false
@@ -33,7 +40,7 @@ offset_left = 893.0
 offset_top = 552.0
 offset_right = 1095.0
 offset_bottom = 611.0
-theme_override_colors/icon_hover_color = Color(0.666569, 0.666569, 0.666569, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "Click to return"
 script = ExtResource("1_3vun2")
 
