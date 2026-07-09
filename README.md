@@ -17,7 +17,10 @@ Fun Fact! When creating the name (K1 Monophonic Sampler), I decided to use the f
 ### MacOS
 Only one version of MacOS has been tested (Intel).
 
-To open, uncompress the zip, and double click the file. It may prompt you when opening or while using if the program can access certain parts of your computer. Most of the time, you'll want to click "OK" so you can use certain functions of the sampler. (This mostly applies to when accessing files)
+To open, uncompress the zip, and right click on the file. Select "Open" and then it will open up a window. Click "Open" again and the program with then open.
+![imageopen](https://cdn.phototourl.com/free/2026-07-09-16f264ad-4c75-40eb-bad4-a7da0b92ea97.png)
+
+It may prompt you when opening or while using if the program can access certain parts of your computer. Most of the time, you'll want to click "OK" so you can use certain functions of the sampler. (This mostly applies to when accessing files)
 
 ![image](https://cdn.phototourl.com/free/2026-07-09-0e39d850-6ec0-497c-9462-33fe1ec1c8dd.png)
 
