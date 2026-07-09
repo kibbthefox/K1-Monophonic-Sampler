@@ -17,7 +17,7 @@ Fun Fact! When creating the name (K1 Monophonic Sampler), I decided to use the f
 ### MacOS
 Only one version of MacOS has been tested (Intel).
 
-To open, uncompress the zip, and right click on the file. Select "Open" and then it will open up a window. Click "Open" again and the program with then open.
+To open, uncompress the zip, and right click on the file. Select "Open" and then it will open up a window. Click "Open" again and then the program will open.
 
 ![imageopen](https://cdn.phototourl.com/free/2026-07-09-16f264ad-4c75-40eb-bad4-a7da0b92ea97.png)
 
