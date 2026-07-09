@@ -4,7 +4,7 @@
 The K1MS is a sampler that ranges 8 octaves (C2-C9), has MIDI, keyboard, and mouse support, and has full ASDR (Attack, Decay, Sustain, Release) controls.
 To use it you, you upload a file, or use the default preloaded one, and play it on a piano.
 
-This was my first coding project and I used Godot (GDScript)It was made over the course of ~11 days whenever I had free time. ASDR was horrible to implement since they all internally affected each other and made it hard to pinpoint the source. Half of the time was just coding ASDR due to this. I love making music and music gear so I thought it would be fun to code a music-related program. My ambitions were way too high at the start, especially for something made in an engine made for video games.
+This was my first coding project!. I used Godot (GDScript) for scripting and Piskel (Pixel art website) for making assets. It was made over the course of ~11 days whenever I had free time. ASDR was horrible to implement since they all internally affected each other and made it hard to pinpoint the source. Half of the time was just coding ASDR due to this. I love making music and music gear so I thought it would be fun to code a music-related program. My ambitions were way too high at the start, especially for something made in an engine made for video games.
 
 Fun Fact! When creating the name (K1 Monophonic Sampler), I decided to use the first letter of my fursona (Kibb) and a 1 because it was my first coding project.
 
