@@ -15,7 +15,7 @@ Fun Fact! When creating the name (K1 Monophonic Sampler), I decided to use the f
 
 ## Opening Instructions
 ### MacOS
-Only one version of MacOS has been tested (Intel).
+Only one version of MacOS has been tested (Intel). The version it was tested on was Ventura 13.7.8.
 
 To open, uncompress the zip, and right click on the file. Select "Open" and then it will open up a window. Click "Open" again and then the program will open. You mat need to right click and select "Open" twice if the window below shows up without the "Open" button.
 
