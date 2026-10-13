@@ -19,11 +19,7 @@ Only one version of MacOS has been tested (Intel). The version it was tested on 
 
 To open, uncompress the zip, and right click on the file. Select "Open" and then it will open up a window. Click "Open" again and then the program will open. You mat need to right click and select "Open" twice if the window below shows up without the "Open" button.
 
-![imageopen](https://cdn.phototourl.com/free/2026-07-09-16f264ad-4c75-40eb-bad4-a7da0b92ea97.png)
-
 It may prompt you when opening or while using if the program can access certain parts of your computer. Most of the time, you'll want to click "OK" so you can use certain functions of the sampler. (This mostly applies to when accessing files)
-
-![image](https://cdn.phototourl.com/free/2026-07-09-0e39d850-6ec0-497c-9462-33fe1ec1c8dd.png)
 
 ### Windows
 Only Windows 11 has been tested once.
@@ -38,6 +34,6 @@ The installation shouldn't have any issues. Just uncompress the .zip and open th
 
 ## Screenshots!!
 
-![Image 1](https://cdn.phototourl.com/free/2026-07-09-05524d38-ad0b-42d1-9f3e-7839ed10f43d.png) 
+<img src="README assets/ss1.png" alt="ss1" style="width: 720;" >
 
-![Image 2](https://cdn.phototourl.com/free/2026-07-09-46d00565-259a-41c5-be0b-400a992ce972.png)
+<img src="README assets/ss2.png" alt="ss2" style="width: 720;" >

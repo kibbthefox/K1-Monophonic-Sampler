@@ -1,6 +1,6 @@
 [gd_scene load_steps=367 format=3 uid="uid://bumvo02lr1dbf"]
 
-[ext_resource type="Script" uid="uid://onvd2wcicjkb" path="res://delete/scene.gd" id="1_2dgxd"]
+[ext_resource type="Script" uid="uid://onvd2wcicjkb" path="res://scene.gd" id="1_2dgxd"]
 [ext_resource type="Script" uid="uid://3d1nstevnyxt" path="res://fileopenerprocessor.gd" id="2_cn4so"]
 [ext_resource type="AudioStream" uid="uid://bqjeb7u41vg18" path="res://C4.wav" id="2_x1mr1"]
 [ext_resource type="Texture2D" uid="uid://bsq4hue5md3da" path="res://Graphics/New Piskel-6.png.png" id="3_x00em"]
