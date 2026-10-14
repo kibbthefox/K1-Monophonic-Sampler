@@ -1,6 +1,6 @@
 extends Area2D
 
-var BGtheme = 2
+var BGtheme:int = 2
 
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \

@@ -1,7 +1,8 @@
 extends AnimatedSprite2D
 
+
 func _process(_delta: float) -> void:
-	if Globaltest.keydown == 76 + 12 * int(log(Globaltest.mouseoctave)/log(2)):
+	if Globaltest.keydown == 60 + int(self.name) - 1 + 12 * int(log(Globaltest.mouseoctave)/log(2)):
 		frame = 1
 	elif Globaltest.keytheme == 2:
 		frame = 2
