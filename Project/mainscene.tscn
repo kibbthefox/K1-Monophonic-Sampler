@@ -1,4 +1,4 @@
-[gd_scene load_steps=321 format=3 uid="uid://bumvo02lr1dbf"]
+[gd_scene load_steps=322 format=3 uid="uid://bumvo02lr1dbf"]
 
 [ext_resource type="Script" uid="uid://onvd2wcicjkb" path="res://scene.gd" id="1_2dgxd"]
 [ext_resource type="Script" uid="uid://3d1nstevnyxt" path="res://fileopenerprocessor.gd" id="2_cn4so"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bsq4hue5md3da" path="res://Graphics/New Piskel-6.png.png" id="3_x00em"]
 [ext_resource type="Script" uid="uid://c4nck3wvoxodl" path="res://bottomCdisplay.gd" id="5_dgcol"]
 [ext_resource type="Texture2D" uid="uid://5lwa304uto8i" path="res://updown/updown1.png" id="6_5sad8"]
+[ext_resource type="Script" uid="uid://er0g56c351ol" path="res://audio.gd" id="7_yrlyd"]
 [ext_resource type="Texture2D" uid="uid://dwf3y5bb7h4d4" path="res://updown/updown0.png" id="8_72hcu"]
 [ext_resource type="FontFile" uid="uid://yopnx4emx1ke" path="res://fonts/fs-pixel-sans-unicode-regular/fs-pixel-sans-unicode-regular.ttf" id="8_yb6hc"]
 [ext_resource type="Texture2D" uid="uid://le6m0kfjejcj" path="res://uploadtexture0.png" id="9_wh7r7"]
@@ -1294,7 +1295,36 @@ texture = ExtResource("51_oax41")
 [node name="fileopenerprocessor" type="Node" parent="."]
 script = ExtResource("2_cn4so")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1mr1")
+pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
+
+[node name="2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1mr1")
+pitch_scale = 1.1
+
+[node name="3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1mr1")
+pitch_scale = 1.1
+
+[node name="4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1mr1")
+pitch_scale = 1.1
+
+[node name="5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1mr1")
+pitch_scale = 1.1
+
+[node name="6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1mr1")
+pitch_scale = 1.1
+
+[node name="7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x1mr1")
+pitch_scale = 1.1
+
+[node name="8" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
 

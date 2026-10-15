@@ -19,7 +19,14 @@ func _on_file_dialog_file_selected(path: String) -> void:
 		return
 
 	if stream:
-		$"../AudioStreamPlayer".stream = stream
+		$"../1".stream = stream
+		$"../2".stream = stream
+		$"../3".stream = stream
+		$"../4".stream = stream
+		$"../5".stream = stream
+		$"../6".stream = stream
+		$"../7".stream = stream
+		$"../8".stream = stream
 		Globaltest.filetext = path.get_file()
 
 func load_audio(path: String) -> AudioStream:

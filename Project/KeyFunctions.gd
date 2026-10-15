@@ -12,19 +12,19 @@ func _on_input_event(_viewport, event, _shape_idx):
 
 func on_click():
 	if int(get_parent().name) < 13:
-		$"../../../AudioStreamPlayer".pitch_scale = Globaltest.pitcharray2[int(get_parent().name) - 1] * Globaltest.mouseoctave
+		$"../../../1".pitch_scale = Globaltest.pitcharray2[int(get_parent().name) - 1] * Globaltest.mouseoctave
 	else:
-		$"../../../AudioStreamPlayer".pitch_scale = Globaltest.pitcharray2[int(get_parent().name) - 1] * 2 * Globaltest.mouseoctave
+		$"../../../1".pitch_scale = Globaltest.pitcharray2[int(get_parent().name) - 1] * 2 * Globaltest.mouseoctave
 	Globaltest.lastpressed = "mouse"
-	Globaltest.releasehelper = "standstill"
+	Globaltest.releasehelper[0] = "standstill"
 	Globaltest.keydown = 60 + int(get_parent().name) - 1 + 12 * int(log(Globaltest.mouseoctave)/log(2))
 	if Globaltest.attack > 0:
-		$"../../../AudioStreamPlayer".volume_db = -80
+		$"../../../1".volume_db = -80
 		Globaltest.attackhelper = "attack"
 	else:
-		$"../../../AudioStreamPlayer".volume_db = 0
+		$"../../../1".volume_db = 0
 	release = "activate"
-	$"../../../AudioStreamPlayer".play()
+	$"../../../1".play()
 
 
 func _process(_delta: float) -> void:
@@ -32,5 +32,5 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_released("leftbutton") and Globaltest.lastpressed == "mouse":
 			if Globaltest.lastpressed == "mouse":
 				Globaltest.keydown = 0
-			Globaltest.releasehelper = "subtract"
+			Globaltest.releasehelper[0] = "subtract"
 			release = "deactivate"
