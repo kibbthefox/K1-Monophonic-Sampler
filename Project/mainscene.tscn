@@ -1295,6 +1295,11 @@ texture = ExtResource("51_oax41")
 [node name="fileopenerprocessor" type="Node" parent="."]
 script = ExtResource("2_cn4so")
 
+[node name="0" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
+
 [node name="1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
@@ -1303,30 +1308,37 @@ script = ExtResource("7_yrlyd")
 [node name="2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
 
 [node name="3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
 
 [node name="4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
 
 [node name="5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
 
 [node name="6" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
 
 [node name="7" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
 
 [node name="8" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_x1mr1")
 pitch_scale = 1.1
+script = ExtResource("7_yrlyd")
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"

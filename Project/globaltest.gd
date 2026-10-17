@@ -16,3 +16,4 @@ var keytheme:int = 1
 var keydown:int
 var filetext:String = "Upload Audio File"
 var voice:int = 1
+var volume:float = -6.0
