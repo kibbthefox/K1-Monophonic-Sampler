@@ -16,11 +16,11 @@ func on_click():
 	else:
 		$"../../../1".pitch_scale = Globaltest.pitcharray2[int(get_parent().name) - 1] * 2 * Globaltest.mouseoctave
 	Globaltest.lastpressed = "mouse"
-	Globaltest.releasehelper[0] = "standstill"
+	Globaltest.releasehelper[int(self.name) - 1] = "standstill"
 	Globaltest.keydown = 60 + int(get_parent().name) - 1 + 12 * int(log(Globaltest.mouseoctave)/log(2))
 	if Globaltest.attack > 0:
 		$"../../../1".volume_db = -80
-		Globaltest.attackhelper = "attack"
+		Globaltest.attackhelper[int(self.name) - 1] = "attack"
 	else:
 		$"../../../1".volume_db = 0
 	release = "activate"
@@ -32,5 +32,5 @@ func _process(_delta: float) -> void:
 		if Input.is_action_just_released("leftbutton") and Globaltest.lastpressed == "mouse":
 			if Globaltest.lastpressed == "mouse":
 				Globaltest.keydown = 0
-			Globaltest.releasehelper[0] = "subtract"
+			Globaltest.releasehelper[int(self.name) - 1] = "subtract"
 			release = "deactivate"
