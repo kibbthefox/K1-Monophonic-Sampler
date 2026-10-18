@@ -21,14 +21,8 @@ func _input(input_event):
 
 
 func _print_midi_info(midi_event):
-	#print('midi info ----------')
-	#print(midi_event)
-	#print("Pitch ", midi_event.pitch)
-	#print("Velocity ", midi_event.velocity)
 	midioctave = 2.0 ** (midi_event.pitch/12 - 5)
 	calcpitch = midi_event.pitch - (midi_event.pitch/12 - 5) * 12 - 60
-	#print(midioctave)
-	#print(calcpitch)
 	if midioctave >= .125 and midioctave <= 8 and midi_event.velocity > 0 \
 	and Globaltest.voice == int(self.name):
 		if Globaltest.attack > 0:
@@ -39,34 +33,32 @@ func _print_midi_info(midi_event):
 		else:
 			self.volume_db = Globaltest.volume
 			self.play()
-		Globaltest.keydown = midi_event.pitch
+		Globaltest.keydown[int(self.name) - 1] = midi_event.pitch
+		Globaltest.lastnote[int(self.name) - 1] = midi_event.pitch
 		Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
-		Globaltest.lastpressed = "MIDI"
+		Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
 		lastmidipress = midi_event.pitch
 		velocitycalc = midi_event.velocity / 6.35 - 17.5
 		self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
-		if Globaltest.voice < 8:
-			Globaltest.voice = int(self.name) + 1
-		elif Globaltest.voice == 8:
-			Globaltest.voice = 0
 	if midi_event.velocity == 0 and lastmidipress == midi_event.pitch:
 		Globaltest.releasehelper[int(self.name) - 1] = "midiletgo"
 
 
 func _process(_delta) -> void:
-	if Input.is_action_just_released(lastinputpress) and Globaltest.lastpressed == "keyboard":
+	if Input.is_action_just_released(lastinputpress) and Globaltest.lastpressed[int(self.name) - 1] == "keyboard":
 		Globaltest.releasehelper[int(self.name) - 1] = "subtract"
-		Globaltest.keydown = 0
-	if Globaltest.releasehelper[int(self.name) - 1] == "midiletgo" and Globaltest.lastpressed == "MIDI":
+		Globaltest.keydown[int(self.name) - 1] = 0
+	if Globaltest.releasehelper[int(self.name) - 1] == "midiletgo" and Globaltest.lastpressed[int(self.name) - 1] == "MIDI":
 		Globaltest.releasehelper[int(self.name) - 1] = "subtract"
-		Globaltest.keydown = 0
+		Globaltest.keydown[int(self.name) - 1] = 0
 	if Globaltest.voice == int(self.name):
 		for i in range(keyboardarr.size()):
 			if Input.is_action_just_pressed(keyboardarr[i]):
 				Globaltest.releasehelper[int(self.name) - 1] = "standstill"
-				Globaltest.lastpressed = "keyboard" 
+				Globaltest.lastpressed[int(self.name) - 1] = "keyboard" 
 				lastinputpress = keyboardarr[i]
-				Globaltest.keydown = 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2))
+				Globaltest.keydown[int(self.name) - 1] = 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2))
+				Globaltest.lastnote[int(self.name) - 1] = 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2))
 				if Globaltest.attack > 0:
 					self.volume_db = Globaltest.volume - 80
 					Globaltest.attackhelper[int(self.name) - 1] = "attack"
@@ -75,10 +67,6 @@ func _process(_delta) -> void:
 					self.volume_db = Globaltest.volume
 					self.play()
 				self.pitch_scale = Globaltest.pitcharray[i] * Globaltest.mouseoctave * octavearr[i]
-				if Globaltest.voice < 8:
-					Globaltest.voice = int(self.name) + 1
-				elif Globaltest.voice == 8:
-					Globaltest.voice = 0
 
 
 func _physics_process(_delta: float) -> void:
@@ -99,3 +87,5 @@ func _physics_process(_delta: float) -> void:
 			self.volume_db -= ((40 - sustaincalc)/60) / Globaltest.decay
 		else:
 			self.volume_db = (sustaincalc - 40)
+	if self.volume_db < Globaltest.volume - 90:
+		Globaltest.lastnote[int(self.name) - 1] = 0
