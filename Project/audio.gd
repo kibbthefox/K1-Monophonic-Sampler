@@ -33,8 +33,8 @@ func _print_midi_info(midi_event):
 		else:
 			self.volume_db = Globaltest.volume
 			self.play()
+		Globaltest.order[int(self.name) - 1] = Globaltest.orderhelp + 1
 		Globaltest.keydown[int(self.name) - 1] = midi_event.pitch
-		Globaltest.lastnote[int(self.name) - 1] = midi_event.pitch
 		Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
 		Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
 		lastmidipress = midi_event.pitch
@@ -66,6 +66,7 @@ func _process(_delta) -> void:
 				else:
 					self.volume_db = Globaltest.volume
 					self.play()
+				Globaltest.order[int(self.name) - 1] = Globaltest.orderhelp + 1
 				self.pitch_scale = Globaltest.pitcharray[i] * Globaltest.mouseoctave * octavearr[i]
 
 
@@ -89,3 +90,4 @@ func _physics_process(_delta: float) -> void:
 			self.volume_db = (sustaincalc - 40)
 	if self.volume_db < Globaltest.volume - 90:
 		Globaltest.lastnote[int(self.name) - 1] = 0
+		Globaltest.order[int(self.name) - 1] = 0

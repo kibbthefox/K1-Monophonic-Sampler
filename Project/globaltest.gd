@@ -19,3 +19,5 @@ var filetext:String = "Upload Audio File"
 var voice:int = 1
 var volume:float = 0.0
 var chosen:bool
+var order:Array = [0,0,0,0,0,0,0,0,0]
+var orderhelp:int = 0

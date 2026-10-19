@@ -31,14 +31,23 @@ func _print_midi_info(midi_event):
 	#print(midioctave)
 	#print(calcpitch)
 	if midioctave >= .125 and midioctave <= 8 and midi_event.velocity > 0:
-		if Globaltest.voice < 8:
-			Globaltest.voice += 1
-		elif Globaltest.voice == 8:
-			Globaltest.voice = 1
+		if Globaltest.lastnote.has(midi_event.pitch):
+			Globaltest.voice = Globaltest.lastnote.find(midi_event.pitch) + 1
+			Globaltest.lastnote[Globaltest.voice - 2] = midi_event.pitch
+		else:
+			print("ASHUBFAVSF")
+			if Globaltest.voice < 8:
+				Globaltest.voice += 1
+			elif Globaltest.voice == 8:
+				Globaltest.voice = 1
+			Globaltest.lastnote[Globaltest.voice - 2] = midi_event.pitch
+		print(Globaltest.lastnote)
+		print(midi_event.pitch)
+		print(Globaltest.voice)
 
 
 func _process(_delta) -> void:
-	print(Globaltest.lastnote)
+	Globaltest.orderhelp = Globaltest.order.filter(func(n): return n != 0).size()
 	if Input.is_action_just_pressed("octaveup") and keyboardoctave < 8:
 		keyboardoctave *= 2
 	if Input.is_action_just_pressed("octavedown") and keyboardoctave > .125:
