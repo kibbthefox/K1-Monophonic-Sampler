@@ -16,6 +16,7 @@ var lastmidipress:int = 60
 var velocitycalc:float
 var sustaincalc:float = (Globaltest.sustain/100.0 * 80)
 var help
+var midipitch
 
 
 func _input(input_event):
@@ -24,26 +25,24 @@ func _input(input_event):
 
 
 func _print_midi_info(midi_event):
-	#print('midi info ----------')
-	#print(midi_event)
-	#print("Pitch ", midi_event.pitch)
-	#print("Velocity ", midi_event.velocity)
-	#print(midioctave)
-	#print(calcpitch)
+	midioctave = 2.0 ** (midi_event.pitch/12 - 5)
+	calcpitch = midi_event.pitch - (midi_event.pitch/12 - 5) * 12 - 60
 	if midioctave >= .125 and midioctave <= 8 and midi_event.velocity > 0:
-		if Globaltest.lastnote.has(midi_event.pitch):
-			Globaltest.voice = Globaltest.lastnote.find(midi_event.pitch) + 1
-			Globaltest.lastnote[Globaltest.voice - 2] = midi_event.pitch
+		midipitch = midi_event.pitch
+		if Globaltest.lastnote.has(midipitch):
+			Globaltest.voice = Globaltest.lastnote.find(midipitch) + 1
 		else:
-			print("ASHUBFAVSF")
 			if Globaltest.voice < 8:
 				Globaltest.voice += 1
 			elif Globaltest.voice == 8:
 				Globaltest.voice = 1
-			Globaltest.lastnote[Globaltest.voice - 2] = midi_event.pitch
+		print(midipitch)
 		print(Globaltest.lastnote)
-		print(midi_event.pitch)
-		print(Globaltest.voice)
+		get_node(str(Globaltest.voice)).set("mostrecentpitch", midipitch)
+		get_node(str(Globaltest.voice)).playnote()
+		lastmidipress = midi_event.pitch
+	if midi_event.velocity == 0 and Globaltest.lastnote.has(midi_event.pitch):
+		Globaltest.releasehelper[Globaltest.lastnote.find(midi_event.pitch)] = "midiletgo"
 
 
 func _process(_delta) -> void:
@@ -57,20 +56,27 @@ func _process(_delta) -> void:
 	for i in range(keyboardarr.size()):
 		if Input.is_action_just_pressed(keyboardarr[i]):
 			for r in 8:
-				if Globaltest.lastnote[r] == 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2)):
-					Globaltest.voice = r
-				elif Globaltest.lastnote[r] == 0:
-					Globaltest.voice = r
-				else:
-					if Globaltest.voice < 8:
-						Globaltest.voice += 1
-					elif Globaltest.voice == 8:
-						Globaltest.voice = 1
+				pass
+				#if Globaltest.lastnote[r] == 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2)):
+					#Globaltest.voice = r
+				#elif Globaltest.lastnote[r] == 0:
+					#Globaltest.voice = r
+				#else:
+					#if Globaltest.voice < 8:
+						#Globaltest.voice += 1
+					#elif Globaltest.voice == 8:
+						#Globaltest.voice = 1
 
 
 
+	#print('midi info ----------')
+	#print(midi_event)
+	#print("Pitch ", midi_event.pitch)
+	#print("Velocity ", midi_event.velocity)
+	#print(midioctave)
+	#print(calcpitch)
 
-#
+
 #func _input(input_event):
 	#if input_event is InputEventMIDI:
 		#_print_midi_info(input_event)
@@ -135,7 +141,10 @@ func _process(_delta) -> void:
 			#
 			#
 #
-#func _physics_process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
+	#print(midipitch)
+	pass
+	#print(Globaltest.lastnote)
 	#if Globaltest.releasehelper == "subtract" and Globaltest.release < 10:
 		#$AudioStreamPlayer.volume_db -= (8.0/6.0) / Globaltest.release
 	#if Globaltest.attackhelper == "attack" and Globaltest.attack > 0 and $AudioStreamPlayer.volume_db < 0:

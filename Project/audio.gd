@@ -13,6 +13,7 @@ var lastmidipress:int = 60
 var velocitycalc:float
 var sustaincalc:float = (Globaltest.sustain/100.0 * 80)
 var help
+var mostrecentpitch
 
 
 func _input(input_event):
@@ -20,28 +21,48 @@ func _input(input_event):
 		_print_midi_info(input_event)
 
 
+
+func playnote():
+	midioctave = 2.0 ** (mostrecentpitch/12 - 5)
+	calcpitch = mostrecentpitch - (mostrecentpitch/12 - 5) * 12 - 60
+	if Globaltest.attack > 0:
+		self.volume_db = Globaltest.volume - 80
+		Globaltest.attackhelper[int(self.name) - 1] = "attack"
+		self.play()
+	else:
+		self.volume_db = Globaltest.volume
+		self.play()
+	Globaltest.order[int(self.name) - 1] = Globaltest.orderhelp + 1
+	Globaltest.keydown[int(self.name) - 1] = mostrecentpitch
+	Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
+	Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
+	Globaltest.lastnote[int(self.name) - 1] = mostrecentpitch
+	self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
+
 func _print_midi_info(midi_event):
-	midioctave = 2.0 ** (midi_event.pitch/12 - 5)
-	calcpitch = midi_event.pitch - (midi_event.pitch/12 - 5) * 12 - 60
-	if midioctave >= .125 and midioctave <= 8 and midi_event.velocity > 0 \
-	and Globaltest.voice == int(self.name):
-		if Globaltest.attack > 0:
-			self.volume_db = Globaltest.volume - 80
-			Globaltest.attackhelper[int(self.name) - 1] = "attack"
-			self.play()
-			print("attack")
-		else:
-			self.volume_db = Globaltest.volume
-			self.play()
-		Globaltest.order[int(self.name) - 1] = Globaltest.orderhelp + 1
-		Globaltest.keydown[int(self.name) - 1] = midi_event.pitch
-		Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
-		Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
-		lastmidipress = midi_event.pitch
-		velocitycalc = midi_event.velocity / 6.35 - 17.5
-		self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
-	if midi_event.velocity == 0 and lastmidipress == midi_event.pitch:
-		Globaltest.releasehelper[int(self.name) - 1] = "midiletgo"
+	pass
+	#midioctave = 2.0 ** (midi_event.pitch/12 - 5)
+	#calcpitch = midi_event.pitch - (midi_event.pitch/12 - 5) * 12 - 60
+	#if midioctave >= .125 and midioctave <= 8 and midi_event.velocity > 0 \
+	#and Globaltest.voice == int(self.name) and 1 == 2:
+		#mostrecentpitch = midi_event.pitch
+		#if Globaltest.attack > 0:
+			#self.volume_db = Globaltest.volume - 80
+			#Globaltest.attackhelper[int(self.name) - 1] = "attack"
+			#self.play()
+			#print("attack")
+		#else:
+			#self.volume_db = Globaltest.volume
+			#self.play()
+		#Globaltest.order[int(self.name) - 1] = Globaltest.orderhelp + 1
+		#Globaltest.keydown[int(self.name) - 1] = midi_event.pitch
+		#Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
+		#Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
+		#lastmidipress = midi_event.pitch
+		#velocitycalc = midi_event.velocity / 6.35 - 17.5
+		#self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
+	#if midi_event.velocity == 0 and lastmidipress == midi_event.pitch:
+		#Globaltest.releasehelper[int(self.name) - 1] = "midiletgo"
 
 
 func _process(_delta) -> void:
@@ -58,7 +79,7 @@ func _process(_delta) -> void:
 				Globaltest.lastpressed[int(self.name) - 1] = "keyboard" 
 				lastinputpress = keyboardarr[i]
 				Globaltest.keydown[int(self.name) - 1] = 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2))
-				Globaltest.lastnote[int(self.name) - 1] = 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2))
+				#Globaltest.lastnote[int(self.name) - 1] = 60 + keydownhelparr[i] + 12 * int(log(Globaltest.mouseoctave)/log(2))
 				if Globaltest.attack > 0:
 					self.volume_db = Globaltest.volume - 80
 					Globaltest.attackhelper[int(self.name) - 1] = "attack"
@@ -73,6 +94,9 @@ func _process(_delta) -> void:
 func _physics_process(_delta: float) -> void:
 	if Globaltest.releasehelper[int(self.name) - 1] == "subtract" and Globaltest.release < 10:
 		self.volume_db -= (8.0/6.0) / Globaltest.release
+		if self.volume_db < Globaltest.volume - 90:
+			Globaltest.lastnote[int(self.name) - 1] = 0
+			Globaltest.order[int(self.name) - 1] = 0
 	if Globaltest.attackhelper[int(self.name) - 1] == "attack" and Globaltest.attack > 0 and self.volume_db < Globaltest.volume:
 		if Globaltest.releasehelper[int(self.name) - 1] == "standstill" or Globaltest.releasehelper[int(self.name) - 1] == "midistandstill":
 			if self.volume_db + (8.0/6.0) / Globaltest.attack > 0:
@@ -88,6 +112,3 @@ func _physics_process(_delta: float) -> void:
 			self.volume_db -= ((40 - sustaincalc)/60) / Globaltest.decay
 		else:
 			self.volume_db = (sustaincalc - 40)
-	if self.volume_db < Globaltest.volume - 90:
-		Globaltest.lastnote[int(self.name) - 1] = 0
-		Globaltest.order[int(self.name) - 1] = 0
