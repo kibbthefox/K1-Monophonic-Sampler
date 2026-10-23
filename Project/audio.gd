@@ -23,7 +23,6 @@ func _input(input_event):
 
 
 func playnote():
-	midioctave = 2.0 ** (mostrecentpitch/12 - 5)
 	calcpitch = mostrecentpitch - (mostrecentpitch/12 - 5) * 12 - 60
 	if Globaltest.attack > 0:
 		self.volume_db = Globaltest.volume - 80
@@ -34,12 +33,26 @@ func playnote():
 		self.play()
 	Globaltest.order[int(self.name) - 1] = Globaltest.orderhelp + 1
 	Globaltest.keydown[int(self.name) - 1] = mostrecentpitch
-	Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
-	Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
 	Globaltest.lastnote[int(self.name) - 1] = mostrecentpitch
-	self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
+	if Globaltest.which == 1:
+		midioctave = 2.0 ** (mostrecentpitch/12 - 5)
+		Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
+		Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
+		self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
+	else:
+		Globaltest.releasehelper[int(self.name) - 1] = "standstill"
+		Globaltest.lastpressed[int(self.name) - 1] = "keyboard"
+		for i in range(keyboardarr.size()):
+			if Input.is_action_just_pressed(keyboardarr[i]):
+				lastinputpress = keyboardarr[i]
+				self.pitch_scale = Globaltest.pitcharray[i] * Globaltest.mouseoctave * octavearr[i]
 
-func _print_midi_info(midi_event):
+
+
+
+
+
+func _print_midi_info(_midi_event):
 	pass
 	#midioctave = 2.0 ** (midi_event.pitch/12 - 5)
 	#calcpitch = midi_event.pitch - (midi_event.pitch/12 - 5) * 12 - 60
@@ -72,7 +85,7 @@ func _process(_delta) -> void:
 	if Globaltest.releasehelper[int(self.name) - 1] == "midiletgo" and Globaltest.lastpressed[int(self.name) - 1] == "MIDI":
 		Globaltest.releasehelper[int(self.name) - 1] = "subtract"
 		Globaltest.keydown[int(self.name) - 1] = 0
-	if Globaltest.voice == int(self.name):
+	if Globaltest.voice == int(self.name) and 1 == 2:
 		for i in range(keyboardarr.size()):
 			if Input.is_action_just_pressed(keyboardarr[i]):
 				Globaltest.releasehelper[int(self.name) - 1] = "standstill"

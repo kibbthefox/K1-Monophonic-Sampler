@@ -13,11 +13,12 @@ var attackhelper:Array = ["stop","stop","stop","stop","stop","stop","stop","stop
 var sustain:int
 var decay:float = 1
 var keytheme:int = 1
-var keydown:Array = [0,0,0,0,0,0,0,0,0]
-var lastnote:Array = [0,0,0,0,0,0,0,0,0]
+var keydown:Array = [0,0,0,0,0,0,0,0]
+var lastnote:Array = [0,0,0,0,0,0,0,0]
 var filetext:String = "Upload Audio File"
 var voice:int = 1
 var volume:float = 0.0
 var chosen:bool
-var order:Array = [0,0,0,0,0,0,0,0,0]
+var order:Array = [0,0,0,0,0,0,0,0]
 var orderhelp:int = 0
+var which: int = 1
