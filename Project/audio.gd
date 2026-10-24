@@ -14,6 +14,7 @@ var velocitycalc:float
 var sustaincalc:float = (Globaltest.sustain/100.0 * 80)
 var help
 var mostrecentpitch
+var pitchscale
 
 
 func _input(input_event):
@@ -39,14 +40,17 @@ func playnote():
 		Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
 		Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
 		self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
-	else:
+	elif Globaltest.which == 2:
 		Globaltest.releasehelper[int(self.name) - 1] = "standstill"
 		Globaltest.lastpressed[int(self.name) - 1] = "keyboard"
 		for i in range(keyboardarr.size()):
 			if Input.is_action_just_pressed(keyboardarr[i]):
 				lastinputpress = keyboardarr[i]
 				self.pitch_scale = Globaltest.pitcharray[i] * Globaltest.mouseoctave * octavearr[i]
-
+	else:
+		Globaltest.releasehelper[int(self.name) - 1] = "standstill"
+		Globaltest.lastpressed[int(self.name) - 1] = "mouse"
+		self.pitch_scale = pitchscale
 
 
 
@@ -105,7 +109,7 @@ func _process(_delta) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	if Globaltest.releasehelper[int(self.name) - 1] == "subtract" and Globaltest.release < 10:
+	if Globaltest.releasehelper[int(self.name) - 1] == "subtract":
 		self.volume_db -= (8.0/6.0) / Globaltest.release
 		if self.volume_db < Globaltest.volume - 90:
 			Globaltest.lastnote[int(self.name) - 1] = 0
