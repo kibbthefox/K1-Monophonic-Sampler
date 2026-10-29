@@ -8,6 +8,7 @@ var rrotate
 var helper
 var limit:float = 38 * PI / 56
 
+
 func _ready():
 	rrotate = 0
 	currentrotate = 0
@@ -31,7 +32,8 @@ func _process(_delta: float) -> void:
 		currentrotate = rrotate
 		clickhelper = 1
 	Globaltest.release = float(int((currentrotate/limit + 1) * 50)) / 10
-		
+
+
 func clicked():
 		mousepos = get_global_mouse_position()
 		clickhelper = 100000000

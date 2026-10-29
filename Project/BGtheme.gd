@@ -2,11 +2,13 @@ extends Area2D
 
 var BGtheme:int = 2
 
+
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.is_pressed():
 		self.onclick()
+
 
 func onclick():
 	if BGtheme == 1:

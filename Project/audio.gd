@@ -3,7 +3,6 @@ extends AudioStreamPlayer
 
 var midioctave: float = 1
 var calcpitch:int = 0
-
 var keyboardoctave:float = 1
 var keyboardarr:Array = ["z","s","x","d","c","v","g","b","h","n","j","m",",","l",".",";","pianoe","q","2","w","3","e","r","5","t","6","y","7","u","i","9","o","0","p"]
 var octavearr:Array = [1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,4,4,4,4,4]
@@ -15,12 +14,6 @@ var sustaincalc:float = (Globaltest.sustain/100.0 * 80)
 var help
 var mostrecentpitch
 var pitchscale
-
-
-func _input(input_event):
-	if input_event is InputEventMIDI:
-		_print_midi_info(input_event)
-
 
 
 func playnote():
@@ -51,35 +44,6 @@ func playnote():
 		Globaltest.releasehelper[int(self.name) - 1] = "standstill"
 		Globaltest.lastpressed[int(self.name) - 1] = "mouse"
 		self.pitch_scale = pitchscale
-
-
-
-
-
-func _print_midi_info(_midi_event):
-	pass
-	#midioctave = 2.0 ** (midi_event.pitch/12 - 5)
-	#calcpitch = midi_event.pitch - (midi_event.pitch/12 - 5) * 12 - 60
-	#if midioctave >= .125 and midioctave <= 8 and midi_event.velocity > 0 \
-	#and Globaltest.voice == int(self.name) and 1 == 2:
-		#mostrecentpitch = midi_event.pitch
-		#if Globaltest.attack > 0:
-			#self.volume_db = Globaltest.volume - 80
-			#Globaltest.attackhelper[int(self.name) - 1] = "attack"
-			#self.play()
-			#print("attack")
-		#else:
-			#self.volume_db = Globaltest.volume
-			#self.play()
-		#Globaltest.order[int(self.name) - 1] = Globaltest.orderhelp + 1
-		#Globaltest.keydown[int(self.name) - 1] = midi_event.pitch
-		#Globaltest.releasehelper[int(self.name) - 1] = "midistandstill"
-		#Globaltest.lastpressed[int(self.name) - 1] = "MIDI"
-		#lastmidipress = midi_event.pitch
-		#velocitycalc = midi_event.velocity / 6.35 - 17.5
-		#self.pitch_scale = Globaltest.pitcharray[calcpitch] * midioctave
-	#if midi_event.velocity == 0 and lastmidipress == midi_event.pitch:
-		#Globaltest.releasehelper[int(self.name) - 1] = "midiletgo"
 
 
 func _process(_delta) -> void:

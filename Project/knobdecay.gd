@@ -12,6 +12,7 @@ func _ready():
 	arotate = 2.1
 	currentrotate = 2.1
 
+
 func _process(_delta: float) -> void:
 	helper = int(27 - 27 * arotate / (PI / 2))
 	frame = helper + 27 * floor(arotate / (PI / 2))
@@ -30,6 +31,7 @@ func _process(_delta: float) -> void:
 		currentrotate = arotate
 		clickhelper = 1
 	Globaltest.decay = float(int((currentrotate/2.09999990463256 + 1) * 25)) / 10 
+
 
 func clicked():
 		mousepos = get_global_mouse_position()

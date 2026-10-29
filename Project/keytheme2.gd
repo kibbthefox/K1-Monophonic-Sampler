@@ -2,6 +2,7 @@ extends Area2D
 
 var frame:int = 0
 
+
 func _on_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
@@ -16,4 +17,3 @@ func onclick():
 	elif Globaltest.keytheme == 2:
 		Globaltest.keytheme = 1
 		$"..".frame = 0
-	

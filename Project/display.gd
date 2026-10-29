@@ -1,5 +1,6 @@
 extends RichTextLabel
 
+
 func _process(_delta: float) -> void:
 	if self.name == "Attack display":
 		$".".text = str(Globaltest.attack) + " secs"
