@@ -34,6 +34,9 @@ To open, uncompress the zip, and right click on the file. Select "Open" and then
 ### Windows
 Uncompress the .zip and open the file. If a windows security window shows up, click "more info" and then click "Run Anyway"
 
+### Linux
+You have to figure this out yourself, I don't know anything about linux </3
+
 ## Screenshots
 
 <img src="README assets/ss1.png" alt="ss1" width="650" style="margin-bottom: 20px;">
