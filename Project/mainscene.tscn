@@ -1,23 +1,17 @@
-[gd_scene load_steps=322 format=3 uid="uid://bumvo02lr1dbf"]
+[gd_scene load_steps=314 format=3 uid="uid://bumvo02lr1dbf"]
 
 [ext_resource type="Script" uid="uid://onvd2wcicjkb" path="res://scene.gd" id="1_2dgxd"]
 [ext_resource type="Script" uid="uid://3d1nstevnyxt" path="res://fileopenerprocessor.gd" id="2_cn4so"]
 [ext_resource type="AudioStream" uid="uid://bqjeb7u41vg18" path="res://C4.wav" id="2_x1mr1"]
 [ext_resource type="Texture2D" uid="uid://bsq4hue5md3da" path="res://Graphics/New Piskel-6.png.png" id="3_x00em"]
-[ext_resource type="Script" uid="uid://c4nck3wvoxodl" path="res://bottomCdisplay.gd" id="5_dgcol"]
 [ext_resource type="Texture2D" uid="uid://5lwa304uto8i" path="res://updown/updown1.png" id="6_5sad8"]
 [ext_resource type="Script" uid="uid://er0g56c351ol" path="res://audio.gd" id="7_yrlyd"]
 [ext_resource type="Texture2D" uid="uid://dwf3y5bb7h4d4" path="res://updown/updown0.png" id="8_72hcu"]
 [ext_resource type="FontFile" uid="uid://yopnx4emx1ke" path="res://fonts/fs-pixel-sans-unicode-regular/fs-pixel-sans-unicode-regular.ttf" id="8_yb6hc"]
 [ext_resource type="Texture2D" uid="uid://le6m0kfjejcj" path="res://uploadtexture0.png" id="9_wh7r7"]
 [ext_resource type="Script" uid="uid://7i85ceyra5w3" path="res://upload_file_button.gd" id="10_0f8ox"]
-[ext_resource type="Script" uid="uid://6qo0xcgjsehd" path="res://topcdisplay.gd" id="14_6doti"]
 [ext_resource type="Script" uid="uid://4whrtc31ffxb" path="res://mouseoctavedown.gd" id="30_ewkxy"]
-[ext_resource type="Script" uid="uid://cw1ruvpoae83a" path="res://MouseOctave.gd" id="30_xkysf"]
 [ext_resource type="Script" uid="uid://yb6p0mjnmgs4" path="res://mouseoctaveup.gd" id="31_5au1j"]
-[ext_resource type="Script" uid="uid://b43rdhcb65wag" path="res://midikeyboardname.gd" id="35_7b6ne"]
-[ext_resource type="Script" uid="uid://dx7s2vm3pjx1u" path="res://releasedisplay.gd" id="38_e2pok"]
-[ext_resource type="Script" uid="uid://bcfqkou6o5sui" path="res://attackdisplay.gd" id="40_5gj1e"]
 [ext_resource type="Texture2D" uid="uid://ubg61pk8ptfo" path="res://piano sprites/piano50.png" id="41_qtx75"]
 [ext_resource type="Texture2D" uid="uid://crh68xs3ro3ke" path="res://piano sprites/piano26.png" id="42_yb6hc"]
 [ext_resource type="Texture2D" uid="uid://d125l2j6ybcpq" path="res://piano sprites/piano74.png" id="43_8u1yw"]
@@ -30,9 +24,9 @@
 [ext_resource type="Texture2D" uid="uid://ceomm5hg68up5" path="res://Graphics/buttons0.png" id="49_tirwv"]
 [ext_resource type="Texture2D" uid="uid://n6lejkyo6yr6" path="res://Graphics/buttons1.png" id="50_t5jff"]
 [ext_resource type="Texture2D" uid="uid://ce4e8qpga6wux" path="res://piano sprites/piano47.png" id="50_wq46q"]
+[ext_resource type="Script" uid="uid://eniwdcke3u20" path="res://display.gd" id="50_yrlyd"]
 [ext_resource type="Texture2D" uid="uid://b4rh5e3lnynun" path="res://piano sprites/piano23.png" id="51_ams00"]
 [ext_resource type="Texture2D" uid="uid://dqdaadgwqobir" path="res://Graphics/buttons2.png" id="51_oax41"]
-[ext_resource type="Script" uid="uid://c2ovhsvil6xoq" path="res://keytheme.gd" id="51_qsfcs"]
 [ext_resource type="Script" uid="uid://ddq06wbpiv4p6" path="res://keytheme2.gd" id="52_2onmc"]
 [ext_resource type="Texture2D" uid="uid://beimaeyrutbd1" path="res://piano sprites/piano71.png" id="52_3jviw"]
 [ext_resource type="Texture2D" uid="uid://bfyn0qwcuhruw" path="res://Graphics/buttons4.png" id="52_spusp"]
@@ -168,11 +162,9 @@
 [ext_resource type="Texture2D" uid="uid://ijheiak7loma" path="res://knob/knob26.png" id="139_pfjl7"]
 [ext_resource type="Texture2D" uid="uid://52ko80qxq1mm" path="res://knob/knob27.png" id="140_33ks5"]
 [ext_resource type="Script" uid="uid://d3p005fge5i64" path="res://knobsustain.gd" id="141_8iu8y"]
-[ext_resource type="Script" uid="uid://72r0mqexflx2" path="res://sustaindisplay.gd" id="141_72hcu"]
 [ext_resource type="Script" uid="uid://dkl7g5c1ipq6x" path="res://knobrelease2.gd" id="141_jp27q"]
 [ext_resource type="Script" uid="uid://ccohx6fw7q57m" path="res://knobattack2.gd" id="142_5sad8"]
 [ext_resource type="Script" uid="uid://b6qaaxyrs4m45" path="res://knobdecay.gd" id="143_a6nrr"]
-[ext_resource type="Script" uid="uid://7eigwh7yh362" path="res://decaydisplay.gd" id="144_0a8k5"]
 [ext_resource type="Texture2D" uid="uid://bku2wdlq3cau7" path="res://Piano sprites flipped/Flipped piano15.png" id="144_8b50r"]
 [ext_resource type="Texture2D" uid="uid://ervw3a61a3kx" path="res://Piano sprites flipped/Flipped piano39.png" id="145_xr2e4"]
 [ext_resource type="Texture2D" uid="uid://bjrbc21dlffsr" path="res://Piano sprites flipped/Flipped piano63.png" id="146_cpa50"]
@@ -1395,7 +1387,7 @@ theme_override_font_sizes/normal_font_size = 64
 text = "#
 "
 horizontal_alignment = 1
-script = ExtResource("30_xkysf")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Mouse Oct Up" type="Button" parent="."]
@@ -1447,7 +1439,7 @@ theme_override_font_sizes/normal_font_size = 48
 text = "C#
 "
 horizontal_alignment = 1
-script = ExtResource("14_6doti")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Bottom C# display" type="RichTextLabel" parent="."]
@@ -1460,10 +1452,10 @@ theme_override_font_sizes/normal_font_size = 48
 text = "C#
 "
 horizontal_alignment = 1
-script = ExtResource("5_dgcol")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
-[node name="Keyboard Instructions2" type="RichTextLabel" parent="."]
+[node name="Midi display" type="RichTextLabel" parent="."]
 offset_top = 604.0
 offset_right = 650.0
 offset_bottom = 648.0
@@ -1471,7 +1463,7 @@ theme_override_fonts/normal_font = ExtResource("8_yb6hc")
 theme_override_font_sizes/normal_font_size = 32
 text = " Midi keyboard name"
 vertical_alignment = 1
-script = ExtResource("35_7b6ne")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Attack" type="RichTextLabel" parent="."]
@@ -1551,7 +1543,7 @@ theme_override_fonts/normal_font = ExtResource("8_yb6hc")
 theme_override_font_sizes/normal_font_size = 32
 text = "#.# secs"
 horizontal_alignment = 1
-script = ExtResource("40_5gj1e")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Decay dispay" type="RichTextLabel" parent="."]
@@ -1563,7 +1555,7 @@ theme_override_fonts/normal_font = ExtResource("8_yb6hc")
 theme_override_font_sizes/normal_font_size = 32
 text = "#.# secs"
 horizontal_alignment = 1
-script = ExtResource("144_0a8k5")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Sustain display" type="RichTextLabel" parent="."]
@@ -1575,7 +1567,7 @@ theme_override_fonts/normal_font = ExtResource("8_yb6hc")
 theme_override_font_sizes/normal_font_size = 32
 text = "100%"
 horizontal_alignment = 1
-script = ExtResource("141_72hcu")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Release display" type="RichTextLabel" parent="."]
@@ -1589,13 +1581,12 @@ text = "#.# secs"
 scroll_active = false
 autowrap_mode = 0
 horizontal_alignment = 1
-script = ExtResource("38_e2pok")
+script = ExtResource("50_yrlyd")
 metadata/_edit_use_anchors_ = true
 
 [node name="Keys" type="AnimatedSprite2D" parent="."]
 position = Vector2(1056, 611)
 sprite_frames = SubResource("SpriteFrames_iifgt")
-script = ExtResource("51_qsfcs")
 
 [node name="Area2D" type="Area2D" parent="Keys"]
 script = ExtResource("52_2onmc")

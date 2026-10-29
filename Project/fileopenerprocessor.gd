@@ -1,7 +1,6 @@
 extends Node
 
 
-
 # I try to use AI as little as possible. unfortunately, I didn't want to spend 10 hours learning all
 # the different types of wav files and how to check them. 95% of the code below is AI. I wish it
 # wasn't, but its what I had to do to finish this project.

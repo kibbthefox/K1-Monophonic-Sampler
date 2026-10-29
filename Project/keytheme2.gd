@@ -7,10 +7,13 @@ func _on_input_event(_viewport, event, _shape_idx):
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.is_pressed():
 		self.onclick()
-		
+
+
 func onclick():
 	if Globaltest.keytheme == 1:
 		Globaltest.keytheme = 2
+		$"..".frame = 1
 	elif Globaltest.keytheme == 2:
 		Globaltest.keytheme = 1
+		$"..".frame = 0
 	
